@@ -17,6 +17,7 @@ import {
   Upload,
   X,
 } from "lucide-react";
+import { catalogProducts } from "@/app/data/catalog";
 
 type HeroItem = {
   number: string;
@@ -365,6 +366,18 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="trust-strip" aria-label="Why choose Memories">
+        <div><b>01</b><strong>Premium materials</strong><span>Objects made to be lived in.</span></div>
+        <div><b>02</b><strong>Durable printing</strong><span>Color that stays in the story.</span></div>
+        <div><b>03</b><strong>Quality control</strong><span>Every piece checked by hand.</span></div>
+        <div><b>04</b><strong>Made to order</strong><span>Less waste, more meaning.</span></div>
+      </section>
+
+      <section className="trending-section section" id="trending">
+        <div className="section-heading"><div><p className="eyebrow">Trending now / 02</p><h2>Pieces with<br /><em>momentum.</em></h2></div><a className="text-link" href="/shop">See the full edit <ArrowRight size={16} /></a></div>
+        <div className="trending-track">{catalogProducts.slice(4, 8).map((product) => <a className="trending-card" href={`/products/${product.slug}`} key={product.slug}><div className="trending-image"><Image src={product.image} alt={product.alt} fill sizes="70vw" /></div><div><span>{product.category}</span><strong>{product.name}</strong><b>{product.price}</b></div></a>)}</div>
+      </section>
+
       <section className="studio-section" id="studio">
         <div className="studio-copy">
           <p className="eyebrow">The creative room / 02</p>
@@ -541,6 +554,13 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <section className="social-section section" aria-labelledby="social-title">
+        <div className="section-heading"><div><p className="eyebrow">Created by people like you / 05</p><h2 id="social-title">The good stuff<br /><em>gets around.</em></h2></div><span className="rating-label">★★★★★ <small>4.9 / 5 from 240+ makers</small></span></div>
+        <div className="review-grid"><blockquote><p>“It arrived feeling like something I had designed with a friend, not clicked through a store.”</p><footer>— Maya R. / Verified order</footer></blockquote><blockquote><p>“The blank was perfect, but the little details made the whole thing feel considered.”</p><footer>— Theo K. / Studio hoodie</footer></blockquote><blockquote><p>“I came for a mug and left with a visual language for my whole desk.”</p><footer>— Alex P. / Morning tumbler</footer></blockquote></div>
+      </section>
+
+      <section className="final-cta"><p className="eyebrow">Your turn / 06</p><h2>Your idea deserves<br /><em>to be seen.</em></h2><p>Make it. Personalize it. Make it yours.</p><a className="button button-lime" href="#studio">Create my design <ArrowRight size={17} /></a></section>
 
       <footer>
         <div className="footer-top">
